@@ -36,11 +36,9 @@ class Curl {
   ///
   /// print(example1);
   /// print(example2);
-  ///// curl 'https://some.api.com/some/path?some=some&query=query' \
-  /////   --compressed \
+  ///// curl 'https://some.api.com/some/path?some=some&query=query' --compressed
   ///
-  ///// curl 'https://some.api.com/some/path?some=some&query=query' \
-  /////   --compressed \
+  ///// curl 'https://some.api.com/some/path?some=some&query=query' --compressed
   /// ```
   static String curlOf({
     required String url,
@@ -57,10 +55,13 @@ class Curl {
     _curl = '$_curl\' \\\n';
     _addHeaders(headers);
     if (body != null) _addBody(body);
-    _curl = '$_curl  --compressed \\';
+    
+    // Add --compressed (with backslash only if not secure to add --insecure)
     if (!isSecure) {
-      _curl = '$_curl\n';
+      _curl = '$_curl  --compressed \\\n';
       _curl = '$_curl  --insecure';
+    } else {
+      _curl = '$_curl  --compressed';
     }
     return _curl;
   }
@@ -99,14 +100,19 @@ class Curl {
   }
 
   /// add [body] to [_curl] if exists.
-  /// 
+  ///
   /// Handles multiple body types:
   /// - String: Used as-is (can be JSON string, form data, or any raw string)
   /// - Map or other objects: JSON encoded
+  /// - Empty string: Ignored
   static void _addBody(Object body) {
     String bodyData;
-    
+
     if (body is String) {
+      // If body is an empty string, don't add it
+      if (body.trim().isEmpty) {
+        return;
+      }
       // If body is already a string, use it as-is
       bodyData = body;
     } else if (body is Map && body.isEmpty) {
@@ -128,7 +134,7 @@ class Curl {
         _curl = '$_curl  -H \'Content-Type: application/json\' \\\n';
       }
     }
-    
+
     _curl = '$_curl  --data-raw \'$bodyData\' \\\n';
   }
 }
