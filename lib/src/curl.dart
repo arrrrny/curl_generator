@@ -14,10 +14,14 @@ class Curl {
 
   /// Generate curl base on provided data.
   ///
-  /// [queryParams], [header] and [body] are optional.
+  /// [queryParams], [headers] and [body] are optional.
   ///
   /// to add query parameters use [queryParams] or add it manually to the end
   /// of [url] with `?`
+  ///
+  /// [body] can be a String (JSON string or raw data), Map, or any object that
+  /// can be JSON encoded. If a String is provided, it will be used as-is.
+  /// If a Map or other object is provided, it will be JSON encoded.
   ///
   /// ```dart
   ///  final example1 = Curl.curlOf(url: 'https://some.api.com/some/path?some=some&query=query');
@@ -42,8 +46,8 @@ class Curl {
     required String url,
     String? method,
     Map<String, String> queryParams = const {},
-    Map<String, String> header = const {},
-    Map<String, dynamic> body = const {},
+    Map<String, String> headers = const {},
+    Object? body,
   }) {
     _curl = '';
     final isSecure = url.startsWith('https');
@@ -51,8 +55,8 @@ class Curl {
     _addUrl(url);
     _addQueryParams(queryParams);
     _curl = '$_curl\' \\\n';
-    _addHeaders(header);
-    if (body.isNotEmpty) _addBody(body);
+    _addHeaders(headers);
+    if (body != null) _addBody(body);
     _curl = '$_curl  --compressed \\';
     if (!isSecure) {
       _curl = '$_curl\n';
@@ -86,23 +90,45 @@ class Curl {
     _curl = '$_curl?$params';
   }
 
-  /// add [header] to [_curl] if exits.
-  static void _addHeaders(Map<String, String> header) {
-    final headers = header.entries.toList();
-    for (int i = 0; i < headers.length; i++) {
-      _curl = '$_curl  -H \'${headers[i].key}: ${headers[i].value}\' \\\n';
+  /// add [headers] to [_curl] if exists.
+  static void _addHeaders(Map<String, String> headers) {
+    final headerEntries = headers.entries.toList();
+    for (int i = 0; i < headerEntries.length; i++) {
+      _curl = '$_curl  -H \'${headerEntries[i].key}: ${headerEntries[i].value}\' \\\n';
     }
   }
 
-  /// add [body] to [_curl] if exits.
-  static void _addBody(Map<String, dynamic> body) {
-    if (!_curl.toLowerCase().contains('content-type')) {
-      _curl = '$_curl  -H \'Content-Type: application/json\' \\\n';
+  /// add [body] to [_curl] if exists.
+  /// 
+  /// Handles multiple body types:
+  /// - String: Used as-is (can be JSON string, form data, or any raw string)
+  /// - Map or other objects: JSON encoded
+  static void _addBody(Object body) {
+    String bodyData;
+    
+    if (body is String) {
+      // If body is already a string, use it as-is
+      bodyData = body;
+    } else if (body is Map && body.isEmpty) {
+      // Empty map, no body to add
+      return;
+    } else {
+      // Encode any other type to JSON
+      bodyData = json.encode(
+        body,
+        toEncodable: (object) => object.toString(),
+      );
     }
-    final encodedBody = json.encode(
-      body,
-      toEncodable: (object) => object.toString(),
-    );
-    _curl = '$_curl  --data-raw \'$encodedBody\' \\\n';
+
+    // Only add Content-Type header if not already present and body looks like JSON
+    if (!_curl.toLowerCase().contains('content-type')) {
+      // Check if body looks like JSON (starts with { or [)
+      final trimmedBody = bodyData.trim();
+      if (trimmedBody.startsWith('{') || trimmedBody.startsWith('[')) {
+        _curl = '$_curl  -H \'Content-Type: application/json\' \\\n';
+      }
+    }
+    
+    _curl = '$_curl  --data-raw \'$bodyData\' \\\n';
   }
 }
