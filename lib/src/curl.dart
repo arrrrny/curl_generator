@@ -56,12 +56,12 @@ class Curl {
     _addHeaders(headers);
     if (body != null) _addBody(body);
     
-    // Add --compressed (with backslash only if not secure to add --insecure)
+    // Add --compressed with backslash only if URL is not secure (to add --insecure)
     if (!isSecure) {
       _curl = '$_curl  --compressed \\\n';
       _curl = '$_curl  --insecure';
     } else {
-      _curl = '$_curl  --compressed';
+      _curl = '$_curl  --compressed \\';
     }
     return _curl;
   }
@@ -126,11 +126,13 @@ class Curl {
       );
     }
 
-    // Only add Content-Type header if not already present and body looks like JSON
+    // Add Content-Type header if not already present
+    // For non-String bodies (Map, objects), we always add application/json
+    // For String bodies, check if they look like JSON
     if (!_curl.toLowerCase().contains('content-type')) {
-      // Check if body looks like JSON (starts with { or [)
       final trimmedBody = bodyData.trim();
-      if (trimmedBody.startsWith('{') || trimmedBody.startsWith('[')) {
+      final looksLikeJson = trimmedBody.startsWith('{') || trimmedBody.startsWith('[');
+      if (body is! String || looksLikeJson) {
         _curl = '$_curl  -H \'Content-Type: application/json\' \\\n';
       }
     }
