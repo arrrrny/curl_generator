@@ -60,7 +60,7 @@ void main() {
         '  -H \'Accept-Language: en-US,en;q=0.9\' \\\n'
         '  -H \'Connection: keep-alive\' \\\n'
         '  --compressed \\';
-    final result = Curl.curlOf(url: url, header: header);
+    final result = Curl.curlOf(url: url, headers: header);
     expect(expectedReturn, result);
   });
 
@@ -81,7 +81,7 @@ void main() {
         '  -H \'Accept-Language: en-US,en;q=0.9\' \\\n'
         '  -H \'Connection: keep-alive\' \\\n'
         '  --compressed \\';
-    final result = Curl.curlOf(url: url, header: header, queryParams: params);
+    final result = Curl.curlOf(url: url, headers: header, queryParams: params);
     expect(expectedReturn, result);
   });
 
@@ -126,7 +126,7 @@ void main() {
         '  --compressed \\';
     final result = Curl.curlOf(
       url: url,
-      header: header,
+      headers: header,
       queryParams: params,
       body: body,
     );
@@ -173,7 +173,7 @@ void main() {
         '  --insecure';
     final result = Curl.curlOf(
       url: url,
-      header: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json'},
       body: {'some': 'value'},
     );
     expect(expectedReturn, result);
@@ -190,7 +190,7 @@ void main() {
         '  --insecure';
     final result = Curl.curlOf(
       url: url,
-      header: {'content-Type': 'application/json'},
+      headers: {'content-Type': 'application/json'},
       body: {'some': 'value'},
     );
     expect(expectedReturn, result);
@@ -206,7 +206,7 @@ void main() {
         '  --insecure';
     final result = Curl.curlOf(
       url: url,
-      header: {'content-Type': 'application/json'},
+      headers: {'content-Type': 'application/json'},
       body: {
         'some': 'value',
         'test': Curl,

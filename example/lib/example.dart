@@ -6,7 +6,7 @@ void initTest() {
     'some': 'some',
     'params': 'params',
   };
-  const header = {
+  const headers = {
     'some': 'some',
     'header': 'header',
   };
@@ -23,7 +23,7 @@ void initTest() {
   final curl = Curl.curlOf(
     url: url,
     body: body,
-    header: header,
+    headers: headers,
     queryParams: params,
   );
 
