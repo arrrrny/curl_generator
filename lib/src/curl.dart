@@ -95,7 +95,11 @@ class Curl {
   static void _addHeaders(Map<String, String> headers) {
     final headerEntries = headers.entries.toList();
     for (int i = 0; i < headerEntries.length; i++) {
-      _curl = '$_curl  -H \'${headerEntries[i].key}: ${headerEntries[i].value}\' \\\n';
+      if (headerEntries[i].key.toLowerCase() == 'cookie') {
+        _curl = '$_curl  -b \'${headerEntries[i].value}\' \\\n';
+      } else {
+        _curl = '$_curl  -H \'${headerEntries[i].key}: ${headerEntries[i].value}\' \\\n';
+      }
     }
   }
 
