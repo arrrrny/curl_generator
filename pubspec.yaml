@@ -3,12 +3,11 @@ description: A Dart package to create simple curl (bash) with params, headers an
 version: 1.0.2
 homepage: https://b1101-portfolio.web.app
 repository: https://github.com/P-B1101/curl_generator
+publish_to: https://pub.zuzu.dev
 
 environment:
   sdk: ^3.5.3
 
-
 dev_dependencies:
-  test: 
+  test:
   lints:
-
