@@ -1,0 +1,98 @@
+{
+  "id": "2026-08-19-031555",
+  "generated_at": "2026-08-19T00:15:55.01647Z",
+  "language": "en",
+  "pages": [
+    {
+      "slug": "1-overview",
+      "title": "Overview",
+      "file": "1-overview.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "2-quick-start",
+      "title": "Quick Start",
+      "file": "2-quick-start.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "3-installation",
+      "title": "Installation",
+      "file": "3-installation.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "4-the-curl-curlof-method",
+      "title": "The Curl.curlOf Method",
+      "file": "4-the-curl-curlof-method.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "5-generating-basic-get-requests",
+      "title": "Generating Basic GET Requests",
+      "file": "5-generating-basic-get-requests.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "6-adding-query-parameters",
+      "title": "Adding Query Parameters",
+      "file": "6-adding-query-parameters.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "7-adding-headers",
+      "title": "Adding Headers",
+      "file": "7-adding-headers.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "8-including-request-body",
+      "title": "Including Request Body",
+      "file": "8-including-request-body.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "9-auto-content-type-detection",
+      "title": "Auto Content-Type Detection",
+      "file": "9-auto-content-type-detection.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "10-https-vs-http-handling",
+      "title": "HTTPS vs HTTP Handling",
+      "file": "10-https-vs-http-handling.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "11-http-method-support",
+      "title": "HTTP Method Support",
+      "file": "11-http-method-support.md",
+      "section": "Deep Dive",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "12-library-architecture-and-part-directive",
+      "title": "Library Architecture \u0026 Part Directive",
+      "file": "12-library-architecture-and-part-directive.md",
+      "section": "Deep Dive",
+      "level": "Advanced"
+    },
+    {
+      "slug": "13-static-class-pattern-and-string-building-strategy",
+      "title": "Static Class Pattern \u0026 String Building Strategy",
+      "file": "13-static-class-pattern-and-string-building-strategy.md",
+      "section": "Deep Dive",
+      "level": "Advanced"
+    }
+  ]
+}

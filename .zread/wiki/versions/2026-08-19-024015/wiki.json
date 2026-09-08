@@ -1,0 +1,131 @@
+{
+  "id": "2026-08-19-024015",
+  "generated_at": "2026-08-18T23:40:15.735353Z",
+  "language": "en",
+  "pages": [
+    {
+      "slug": "1-overview",
+      "title": "Overview",
+      "file": "1-overview.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "2-quick-start",
+      "title": "Quick Start",
+      "file": "2-quick-start.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "3-installation",
+      "title": "Installation",
+      "file": "3-installation.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "4-basic-usage-examples",
+      "title": "Basic Usage Examples",
+      "file": "4-basic-usage-examples.md",
+      "section": "Get Started",
+      "level": "Beginner"
+    },
+    {
+      "slug": "5-library-entry-point-and-part-file-pattern",
+      "title": "Library Entry Point and Part File Pattern",
+      "file": "5-library-entry-point-and-part-file-pattern.md",
+      "section": "Deep Dive",
+      "group": "Core Architecture",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "6-the-curl-class-and-its-api-surface",
+      "title": "The Curl Class and Its API Surface",
+      "file": "6-the-curl-class-and-its-api-surface.md",
+      "section": "Deep Dive",
+      "group": "Core Architecture",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "7-curl-generation-pipeline-internals",
+      "title": "Curl Generation Pipeline Internals",
+      "file": "7-curl-generation-pipeline-internals.md",
+      "section": "Deep Dive",
+      "group": "Core Architecture",
+      "level": "Advanced"
+    },
+    {
+      "slug": "8-http-method-handling",
+      "title": "HTTP Method Handling",
+      "file": "8-http-method-handling.md",
+      "section": "Deep Dive",
+      "group": "Feature Details",
+      "level": "Beginner"
+    },
+    {
+      "slug": "9-query-parameter-encoding",
+      "title": "Query Parameter Encoding",
+      "file": "9-query-parameter-encoding.md",
+      "section": "Deep Dive",
+      "group": "Feature Details",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "10-header-management-and-content-type-auto-detection",
+      "title": "Header Management and Content-Type Auto-Detection",
+      "file": "10-header-management-and-content-type-auto-detection.md",
+      "section": "Deep Dive",
+      "group": "Feature Details",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "11-body-serialization-strategies",
+      "title": "Body Serialization Strategies",
+      "file": "11-body-serialization-strategies.md",
+      "section": "Deep Dive",
+      "group": "Feature Details",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "12-https-vs-http-behavior-and-insecure-flag",
+      "title": "HTTPS vs HTTP Behavior and --insecure Flag",
+      "file": "12-https-vs-http-behavior-and-insecure-flag.md",
+      "section": "Deep Dive",
+      "group": "Feature Details",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "13-running-tests",
+      "title": "Running Tests",
+      "file": "13-running-tests.md",
+      "section": "Deep Dive",
+      "group": "Testing \u0026 Quality",
+      "level": "Beginner"
+    },
+    {
+      "slug": "14-test-coverage-walkthrough",
+      "title": "Test Coverage Walkthrough",
+      "file": "14-test-coverage-walkthrough.md",
+      "section": "Deep Dive",
+      "group": "Testing \u0026 Quality",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "15-github-actions-publishing-workflow",
+      "title": "GitHub Actions Publishing Workflow",
+      "file": "15-github-actions-publishing-workflow.md",
+      "section": "Deep Dive",
+      "group": "Publishing \u0026 CI/CD",
+      "level": "Intermediate"
+    },
+    {
+      "slug": "16-versioning-and-changelog",
+      "title": "Versioning and Changelog",
+      "file": "16-versioning-and-changelog.md",
+      "section": "Deep Dive",
+      "group": "Publishing \u0026 CI/CD",
+      "level": "Beginner"
+    }
+  ]
+}
